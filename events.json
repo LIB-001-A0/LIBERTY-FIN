@@ -1,0 +1,6 @@
+[
+  {"id":"evt-001","time":"2026-10-10T08:00:00Z","kind":"session_open","actor":"demo-user","source":"public-api","target":"auth-service","session_id":"demo-session-A","allowed":true,"detail":"synthetic login"},
+  {"id":"evt-002","time":"2026-10-10T08:01:00Z","kind":"connection_refused","actor":"demo-user","source":"api-gateway","target":"internal-service","allowed":false,"detail":"synthetic refused connection"},
+  {"id":"evt-003","time":"2026-10-10T08:02:00Z","kind":"prompt_injection","actor":"untrusted-content","source":"external-document","target":"defense-agent","allowed":false,"detail":"synthetic prompt-injection indicator"},
+  {"id":"evt-004","time":"2026-10-10T08:03:00Z","kind":"session_revoke","actor":"security-operator","source":"auth-service","target":"session-store","session_id":"demo-session-A","allowed":true,"detail":"synthetic revocation"}
+]

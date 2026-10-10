@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "scope": {
+    "scope_id": "lab-fin-001",
+    "environment": "SYNTHETIC",
+    "approved_by": "lab-owner",
+    "approved_at": "2026-10-10T00:00:00Z"
+  },
+  "observations": [
+    {
+      "observation_id": "obs-001",
+      "observed_at": "2026-10-10T00:01:00Z",
+      "stage": "OBSERVE",
+      "event_type": "HTTP_403",
+      "evidence_status": "OBSERVED",
+      "subject_ref": "api-demo-01",
+      "source": {
+        "source_type": "SYNTHETIC_LOG",
+        "source_ref": "fixture-log-01"
+      },
+      "evidence_refs": [],
+      "summary": "Synthetic API returned 403 in a mock authorization test.",
+      "authorized_scope_id": "lab-fin-001"
+    },
+    {
+      "observation_id": "obs-002",
+      "observed_at": "2026-10-10T00:02:00Z",
+      "stage": "RECONSTRUCT",
+      "event_type": "HYPOTHESIS_REVISED",
+      "evidence_status": "INFERRED",
+      "subject_ref": "boundary-demo-01",
+      "source": {
+        "source_type": "ANALYST_NOTE",
+        "source_ref": "note-01"
+      },
+      "evidence_refs": [
+        "obs-001"
+      ],
+      "summary": "Review authorization policy mapping; no bypass inferred.",
+      "authorized_scope_id": "lab-fin-001",
+      "confidence": 0.65
+    }
+  ]
+}
