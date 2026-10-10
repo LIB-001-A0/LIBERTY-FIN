@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/liberty-fin/observation.schema.json",
+  "title": "LIBERTY-FIN Observation",
+  "description": "Versioned evidence-bearing observation for recursive state-space reconstruction.",
+  "type": "object",
+  "required": ["id", "target_id", "signal", "source", "observed_at", "classification", "revision"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "target_id": {"type": "string", "minLength": 1},
+    "adapter_id": {"type": "string"},
+    "signal": {"type": "string", "minLength": 1},
+    "source": {"type": "string", "minLength": 1},
+    "source_url": {"type": ["string", "null"], "format": "uri"},
+    "source_independence_group": {"type": ["string", "null"]},
+    "source_kind": {"enum": ["PRIMARY", "SECONDARY", "MEASUREMENT", "DOCUMENT", "OTHER"]},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "event_at": {"type": ["string", "null"], "format": "date-time"},
+    "classification": {"enum": ["OBSERVED", "INFERRED", "CONTESTED", "REJECTED", "UNKNOWN"]},
+    "entity_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "edge_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "counterexample_ids": {"type": "array", "items": {"type": "string"}},
+    "dependencies": {"type": "array", "items": {"type": "string"}},
+    "extraction_method": {"type": "string"},
+    "confidence_basis": {"type": "string"},
+    "revision": {"type": "integer", "minimum": 1},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}
